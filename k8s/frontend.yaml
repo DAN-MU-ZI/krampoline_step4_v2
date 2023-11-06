@@ -1,4 +1,3 @@
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -11,11 +10,38 @@ spec:
     metadata:
       labels:
         app: frontend
-    spec:
+    spec: 
       containers:
         - name: frontend
-          # 여러분의 frontend image 주소를 입력해주세요.
-          image: krmp-d2hub-idock.9rum.cc/dev-test/repo_e2f205f58d7e
+          # 여러분의 image 주소를 입력해주세요.
+          image: krmp-d2hub-idock.9rum.cc/dev-test/repo_00ffabe848f1
+          env: 
+              - name: REACT_APP_BASE_URL
+                valueFrom:
+                  secretKeyRef: 
+                    name: my-secret
+                    key: react-app-base-url
+              - name: REACT_APP_API_URL
+                valueFrom:
+                  secretKeyRef: 
+                    name: my-secret
+                    key: react-app-api-url
+              - name: REACT_APP_KAKAO_API_KEY
+                valueFrom:
+                  secretKeyRef: 
+                    name: my-secret
+                    key: react-app-kakao-api-key
+              - name: REACT_APP_KAKAO_REDIRECT_URI
+                valueFrom:
+                  secretKeyRef: 
+                    name: my-secret
+                    key: react-app-kakao-redirect-uri
+              - name: REACT_APP_JWT_SECRET
+                valueFrom:
+                  secretKeyRef: 
+                    name: my-secret
+                    key: react-app-jwt-secret
+          
 ---
 apiVersion: v1
 kind: Service
