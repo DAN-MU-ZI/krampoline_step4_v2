@@ -40,17 +40,7 @@ spec:
           #       valueFrom:
           #         secretKeyRef: 
           #           name: my-secret
-          #           key: react-app-jwt-secret
-          volumeMounts:
-            - name: secret-volume
-              mountPath: /app/.env
-              subPath: .env
-              
-      volumes:
-        - name: secret-volume
-          secret:
-            secretName: front-secret
-          
+          #           key: react-app-jwt-secret          
 ---
 apiVersion: v1
 kind: Service
