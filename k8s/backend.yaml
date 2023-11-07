@@ -39,6 +39,16 @@ spec:
                 secretKeyRef: 
                   name: my-secret
                   key: secret-key
+            - name: KAKAO_CLIENT_ID
+              valueFrom:
+                secretKeyRef:
+                  name: my-secret
+                  key: react-app-kakao-api-key
+            - name: KAKAO_REDIRECT_URI
+              valueFrom:
+                secretKeyRef:
+                  name: my-secret
+                  key: react-app-kakao-redirect-uri
           resources:
             requests:
               memory: 1Gi
