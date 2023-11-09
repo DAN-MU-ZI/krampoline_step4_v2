@@ -15,7 +15,7 @@ spec:
       containers:
         - name: backend
           # 여러분의 backend image 주소를 입력해주세요.
-          image: krmp-d2hub-idock.9rum.cc/dev-test/repo_82dd2fa44595
+          image: krmp-d2hub-idock.9rum.cc/dev-test/repo_0479962f609e
           env:
             - name: TZ
               value: Asia/Seoul
@@ -49,6 +49,12 @@ spec:
                 secretKeyRef:
                   name: my-secret
                   key: react-app-kakao-redirect-uri
+            - name: KAKAO_BASE_URI
+              valueFrom:
+                secretKeyRef:
+                  name: my-secret
+                  key: react-app-base-url
+                
           resources:
             requests:
               memory: 1Gi
