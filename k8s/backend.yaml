@@ -54,6 +54,21 @@ spec:
                 secretKeyRef:
                   name: my-secret
                   key: react-app-base-url
+            - name: KRAMPOLINE_PROXY_HOSTNAME
+              valueFrom:
+                secretKeyRef:
+                  name: my-secret
+                  key: krampoline-proxy-url
+            - name: KRAMPOLINE_PROXY_PORT
+              valueFrom:
+                secretKeyRef:
+                  name: my-secret
+                  key: krampoline-proxy-port
+            - name: CORS_ORIGIN
+              valueFrom:
+                secretKeyRef:
+                  name: my-secret
+                  key: cors-origin
                 
           resources:
             requests:
