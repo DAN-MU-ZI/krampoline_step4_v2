@@ -21,7 +21,10 @@ spec:
             - name: TZ
               value: Asia/Seoul
             - name: MARIADB_ROOT_PASSWORD
-              value: root
+              valueFrom:
+                secretKeyRef: 
+                  name: my-secret
+                  key: database-password
             - name: MARIADB_DATABASE
               value: krampoline
             - name: MARIADB_DISABLE_UPGRADE_BACKUP
