@@ -276,3 +276,12 @@ alter table `worktime`
     add constraint FKenvqp8a4tbxv1l4ije9f31jp5 
     foreign key (week_id) 
     references week(id);
+
+insert into groups (`id`, `name`, `phone_number`, `business_number`, `address`)
+values (1, '맘스터치', '011-0000-0001', 1, '부산광역시');
+
+insert into users (`id`, `kakao_id`, `name`, `phone_number`, `is_admin`, `group_id`)
+values (1, 3040993001, '이재훈', '010-0000-0001', true, 1);
+
+insert into roles (`id`, `role_type`, `user_id`)
+values (1, 'ROLE_ADMIN', 1);
